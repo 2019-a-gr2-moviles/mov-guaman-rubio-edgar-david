@@ -3,7 +3,7 @@ import java.util.*
 fun main(args: Array<String>){
     /*
     * Comentario
-    * */
+    *
 
     //Variables
 
@@ -137,11 +137,9 @@ fun main(args: Array<String>){
         //println("Indice:$indice")
         //println("Nota:$nota")
     }
+    */
 
-
-
-
-
+    val numerito = Numero(1)
 
 }
 
@@ -162,8 +160,6 @@ fun estaJalado(nota:Double){
     }
 }
 
-
-
 fun holaMundo (mensaje:String):Unit{
     println("Mensaje: $mensaje")
 }
@@ -174,4 +170,98 @@ fun holaMundoAvanzado(mensaje: Any):Unit{
 
 fun sumarDosNumeros(numUno: Int, numDos: Int):Int{
     return numUno + numDos
+}
+
+class Usuario(val cedula:String){
+    public var nombre:String = "";
+    public var apellido:String="";
+
+    constructor(cedula:String,apellido:String):this(cedula){
+        this.apellido = apellido;
+    }
+
+}
+
+class UsuarioKT(var nombre:String,var apellido:String, private var id:Int, protected var id_Int){
+    companion objet {
+        val gravedad = 10.5
+        fun correr(){
+            println("Estoy corriendo en $gravedad")
+        }
+    }
+
+}
+
+fun hola():String{
+    /*val Edgar = UsuarioKT("a","b")
+    Edgar.nombre = "David"
+    val Edgar2 = Usuario("a")
+    */
+    return this.apellido
+}
+
+private fun hola2(){
+}
+
+protected fun hola3(){
+}
+
+
+
+fun aa(){
+    UsuarioKT.gravedad
+    UsuarioKT.correr()
+}
+
+class A{
+    //A.correr()  //Método estático
+    //A.gravedad  //Propiedad estática
+}
+
+class BaseDeDatos{
+    companion object {
+        val usuarios = arrayListOf(1,2,3)
+        fun agregarUsuario(usuario:Int){
+            this.usuarios.add(usuario)
+        }
+        fun eliminarUsuario(Usuario:Int){
+            //this.usuarios
+        }
+    }
+}
+
+class Numero(var numero:Int){
+    constructor(numeroString: String):this(numeroString:toInit()){
+        println("Constructor")
+    }
+    init {
+        println("INIT")
+    }
+
+}
+
+open class Numeros(var numeroUno:Int, var numeroDos: Int){
+
+}
+
+class Suma(var numeroUnos:Int, var numeroDoss:Int):
+        Numeros(numeroUnos,numeroDoss){
+}
+fun cc(){
+    val a = Suma(1,2)
+    a.
+}
+
+fun presley(requerido:Int,opcional:Int=1,nulo:variable?){
+    if(nulo !=null){
+        nulo.nombre
+    }
+    val nombresito:String?=nulo?.nombre.toString()
+    nulo!!.nombre
+    nombresito.toString()
+
+}
+fun cdd(){
+    presley(1,2,null)
+
 }
