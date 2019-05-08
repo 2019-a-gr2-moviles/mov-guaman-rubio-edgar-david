@@ -2,6 +2,12 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
@@ -29,7 +35,7 @@ public class Empleado1 extends JFrame implements ActionListener
     String strCadBD="";
     int auxID;
 
-    String strTitulos[]={"Nombre","Apellido","Cédula","Cargo","Sueldo"};
+    String strTitulos[]={"Nombre","Apellido","Cédula","Cargo"};
     private DefaultTableModel modTabla=new DefaultTableModel(strTitulos,0)
     {
         private static final long serialVersionUID = 1L;
@@ -155,6 +161,7 @@ public class Empleado1 extends JFrame implements ActionListener
         for (int i = 0; i < columnModel.getColumnCount(); i++) {
             columnModel.getColumn(i).setMinWidth(100);
         }
+        llenarJTable();
 
     }
 
@@ -179,64 +186,75 @@ public class Empleado1 extends JFrame implements ActionListener
 
             if(txtApellido.getText().equals(""))
             {
-                JOptionPane.showMessageDialog(null,"Debe ingresar un nombre del material");
-                errores+="Debe ingresar un nombre del material";
+                JOptionPane.showMessageDialog(null,"Debe ingresar el apellido del empleado");
+                errores+="Debe ingresar el apellido del empleado";
             }
             else
             {
                 patron = Pattern.compile("([ ]?([a-zA-ZñÑáéíóúÁÉÍÓÚ])+[ ]?(([a-zA-ZñÑáéíóúÁÉÍÓÚ])*)?)+");
                 empata = patron.matcher(txtApellido.getText());
                 if (!empata.matches()) {
-                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en nombre del material");
-                    errores+="Debe ingresar sólo letras en nombre del material";
+                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en apellido del empleado");
+                    errores+="Debe ingresar sólo letras en apellido del empleado";
                 }
             }
             if(txtCedula.getText().equals(""))
             {
-                JOptionPane.showMessageDialog(null,"Debe ingresar la cantidad del material");
-                errores+="Debe ingresar la cantidad del material";
+                JOptionPane.showMessageDialog(null,"Debe ingresar el número de cédula del empleado");
+                errores+="Debe ingresar el número de cédula";
             }
             else
             {
                 patron = Pattern.compile("\\d*");
                 empata = patron.matcher(txtCedula.getText());
                 if (!empata.matches()) {
-                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo númerosen cantidad de material");
-                    errores+="Debe ingresar la cantidad del material";
+                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo números en el número de cédula");
+                    errores+="Debe ingresar solo números en el número de cédula";
                 }
             }
             if(txtNombre.getText().equals(""))
             {
-                JOptionPane.showMessageDialog(null,"Debe ingresar sólo númerosen cantidad de material");
-                errores+="Debe ingresar sólo númerosen cantidad de material";
+                JOptionPane.showMessageDialog(null,"Debe ingresar el nombre del empleado");
+                errores+="Debe ingresar el nombre del empleado";
             }
             else
             {
                 patron = Pattern.compile("[\\wñÑ\\s]+");
                 empata = patron.matcher(txtNombre.getText());
                 if (!empata.matches()) {
-                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en marca del material");
-                    errores+="Debe ingresar sólo letras en marca del material";
+                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en nombre del empleado");
+                    errores+="Debe ingresar sólo letras en nombre del empleado";
                 }
             }
             if(txtCargo.getText().equals(""))
             {
-                JOptionPane.showMessageDialog(null,"Debe ingresar el formato del material");
-                errores+="Debe ingresar el formato del material";
+                JOptionPane.showMessageDialog(null,"Debe ingresar el cargo del empleado");
+                errores+="Debe ingresar el cargo del empleado";
             }
             else
             {
                 patron = Pattern.compile("[\\wñÑ\\s]+");
                 empata = patron.matcher(txtCargo.getText());
                 if (!empata.matches()) {
-                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en formato del material");
-                    errores+="Debe ingresar sólo letras en formato del material";
+                    JOptionPane.showMessageDialog(null,"Debe ingresar sólo letras en el cargo");
+                    errores+="Debe ingresar sólo letras en el cargo";
                 }
             }
 
             if(!errores.equals(""))
             {
                 JOptionPane.showMessageDialog(null,"Error en el ingreso de datos");
+            }
+            else{
+                String insercion = txtNombre.getText()+";"+txtApellido.getText()+";"+txtCedula.getText()+";"+txtCargo.getText()+";";
+                try (FileWriter writer = new FileWriter("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/empleados.txt", true);
+                     BufferedWriter bw = new BufferedWriter(writer)) {
+                    bw.write(insercion);
+                } catch (IOException a) {
+                    System.out.println("Error al momento de insertar un empleado");
+                }
+                RemoverElementosJtable();
+                llenarJTable();
             }
         }
         if(accion.equals("actualizar"))
@@ -257,7 +275,27 @@ public class Empleado1 extends JFrame implements ActionListener
 
     }
 
-    public void RefrescarJavaTable()
+    public void llenarJTable(){
+        try {
+            File file = new File("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/empleados.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+
+            // extract data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+                modTabla.addRow(dataRow);
+            }
+        } catch (Exception ex) {
+            System.out.println("Error al llenar la tabla");
+        }
+    }
+
+    public void RemoverElementosJtable()
     {
         int filas=tabla.getRowCount();
         for (int i = 0;filas>i; i++) {
@@ -271,20 +309,18 @@ public class Empleado1 extends JFrame implements ActionListener
         {
             if(tabla.getSelectedRow()>=0){
                 int fil=tabla.getSelectedRow();
-                //txtidProducto.setText(String.valueOf(tabla.getValueAt(fil,0 )));
-                txtApellido.setText(String.valueOf(tabla.getValueAt(fil,1)));
-                txtCedula.setText(String.valueOf(tabla.getValueAt(fil,2 )).trim());
-                txtNombre.setText(String.valueOf(tabla.getValueAt(fil,3 )).trim());
-                txtCargo.setText(String.valueOf(tabla.getValueAt(fil,4 )).trim());
+                txtNombre.setText(String.valueOf(tabla.getValueAt(fil,0)));
+                txtApellido.setText(String.valueOf(tabla.getValueAt(fil,1)).trim());
+                txtCedula.setText(String.valueOf(tabla.getValueAt(fil,2)).trim());
+                txtCargo.setText(String.valueOf(tabla.getValueAt(fil,3)).trim());
             }
         }
     }
 
     public static void main(String[] args)
     {
-        Empleado aplicattion =  new Empleado();
+        Empleado1 aplicattion =  new Empleado1();
         aplicattion.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
     }
 }
-

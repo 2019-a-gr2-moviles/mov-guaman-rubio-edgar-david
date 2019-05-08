@@ -17,8 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Empleado.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2805">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="165">
+              <caret line="255" column="29" lean-forward="true" selection-start-line="255" selection-start-column="29" selection-end-line="255" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#759#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Producto.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="337" lean-forward="true" selection-start-line="337" selection-end-line="337" />
+            <state relative-caret-position="289">
+              <caret line="227" column="40" selection-start-line="227" selection-start-column="40" selection-end-line="227" selection-end-column="40" />
               <folding>
                 <element signature="e#0#639#0" expanded="true" />
               </folding>
@@ -50,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Inicio.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
+            <state relative-caret-position="765">
               <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#0#367#0" expanded="true" />
@@ -86,7 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Empleado.kt" />
         <option value="$PROJECT_DIR$/src/Principal.kt" />
         <option value="$PROJECT_DIR$/src/Producto.java" />
         <option value="$PROJECT_DIR$/src/Inicio.java" />
@@ -98,6 +100,8 @@
         <option value="$PROJECT_DIR$/src/Producto1.java" />
         <option value="$PROJECT_DIR$/archivos/productos.txt" />
         <option value="$PROJECT_DIR$/src/Producto.kt" />
+        <option value="$PROJECT_DIR$/src/Empleado1.java" />
+        <option value="$PROJECT_DIR$/src/Empleado.kt" />
       </list>
     </option>
   </component>
@@ -111,6 +115,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -133,7 +138,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,16 +197,18 @@
       <workItem from="1557390539950" duration="1956000" />
       <workItem from="1557461424118" duration="604000" />
       <workItem from="1557464648148" duration="3080000" />
+      <workItem from="1557468628246" duration="126000" />
+      <workItem from="1557337871212" duration="593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8300000" />
+    <option name="totallyTimeSpent" value="9019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31996974" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31996974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -269,17 +275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Empleado1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Producto1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -289,6 +284,23 @@
             <element signature="e#1348#1349#0" expanded="true" />
             <element signature="e#1384#1385#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archivos/empleados.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archivos/entrada.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archivos/output.txt" />
+    <entry file="file://$PROJECT_DIR$/archivos/temporal.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archivos/productos.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -302,28 +314,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuAdmin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archivos/empleados.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archivos/entrada.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archivos/output.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archivos/temporal.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Inicio.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
+        <state relative-caret-position="765">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="e#0#367#0" expanded="true" />
@@ -331,27 +324,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archivos/productos.txt">
+    <entry file="file://$PROJECT_DIR$/src/MenuAdmin.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state relative-caret-position="629">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Producto.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="337" lean-forward="true" selection-start-line="337" selection-end-line="337" />
+        <state relative-caret-position="289">
+          <caret line="227" column="40" selection-start-line="227" selection-start-column="40" selection-end-line="227" selection-end-column="40" />
           <folding>
             <element signature="e#0#639#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Empleado1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5338">
+          <caret line="314" column="37" selection-start-line="314" selection-start-column="37" selection-end-line="314" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1656#1657#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Empleado.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2805">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="165">
+          <caret line="255" column="29" lean-forward="true" selection-start-line="255" selection-start-column="29" selection-end-line="255" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#759#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

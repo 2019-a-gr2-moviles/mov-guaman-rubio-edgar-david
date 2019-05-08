@@ -2,3 +2,4 @@ Pelikan;Colores;2.50;23;
 Carioca;Marcadores;2.50;20;
 Norma;Resma;3.75;12;
 Estilo;Carpeta;1.25;30;
+Delta;Papel;23523523;3243523;

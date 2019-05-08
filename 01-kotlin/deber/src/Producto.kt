@@ -373,7 +373,6 @@ class Producto : JFrame("MÓDULO PRODUCTOS"), ActionListener {
                 }
                 bw1.close()
             }
-
             RemoverElementosJtable()
             llenarJTable()
     }
