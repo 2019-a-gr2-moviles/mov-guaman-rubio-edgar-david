@@ -1,0 +1,4 @@
+Juan;Perez;17345294834;Cajero;800
+Pedro;Fierro;1734592583;Despachador;900
+Luz;Ortiz;1738492452;Secretaria;1000
+Gina;Lima;1734829532;Cajero;800
