@@ -1,0 +1,6 @@
+Pelikan;Colores;2.50;23;
+Carioca;Marcadores;2.50;20;
+Norma;Resma;3.75;12;
+Estilo;Cuaderno;1.25;30;
+Delta;Portaminas;1.50;10;
+Rotring;Rapidografos;3.50;15;
