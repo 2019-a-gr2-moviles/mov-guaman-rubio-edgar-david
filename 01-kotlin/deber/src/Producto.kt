@@ -229,10 +229,10 @@ class Producto : JFrame("MÓDULO PRODUCTOS"), ActionListener {
                 JOptionPane.showMessageDialog(null, "Error en el ingreso de datos")
             } else {
                 val insercion =
-                    "\n" + txtMarca!!.text + ";" + txtNombreProducto!!.text + ";" + txtPrecio!!.text + ";" + txtStock!!.text + ";"
+                    txtMarca!!.text + ";" + txtNombreProducto!!.text + ";" + txtPrecio!!.text + ";" + txtStock!!.text + ";"
                 try {
                     FileWriter(
-                        "D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/productos.txt",
+                        "C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt",
                         true
                     ).use { writer -> BufferedWriter(writer).use { bw -> bw.write(insercion) } }
                 } catch (a: IOException) {
@@ -295,82 +295,89 @@ class Producto : JFrame("MÓDULO PRODUCTOS"), ActionListener {
             if (erroresActualizar != "") {
                 JOptionPane.showMessageDialog(null, "Error en la actualización de datos")
             } else {
-                val insercion =
-                    "\n" + txtMarca!!.text + ";" + txtNombreProducto!!.text + ";" + txtPrecio!!.text + ";" + txtStock!!.text + ";"
-                try {
-                    FileWriter(
-                        "D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/productos.txt",
-                        true
-                    ).use { writer -> BufferedWriter(writer).use { bw -> bw.write(insercion) } }
-                } catch (a: IOException) {
-                    println("Error al momento de insertar un dato")
+                var archivo:File? = null
+                var fr:FileReader? = null
+                var br:BufferedReader? = null
+                val lstRespaldo = ArrayList<String>()
+                archivo = File("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt")
+                fr = FileReader(archivo!!)
+                br = BufferedReader(fr!!)
+                for(line in br.lines()){
+                    lstRespaldo.add(line)
                 }
+                br!!.close()
 
-                RemoverElementosJtable()
-                llenarJTable()
+                val bw = BufferedWriter(FileWriter("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt"))
+                bw.write("")
+                bw.close()
+                var reemplazo = ""
+                val productoActualizar:String = txtMarca!!.text
+
+                for (i in lstRespaldo.indices)
+                {
+                    val lstValues: List<String> = lstRespaldo[i].split(";").map {it.trim() }
+                    if (lstValues.get(0) == productoActualizar)
+                    {
+                        reemplazo = (txtMarca!!.text + ";"
+                                + txtNombreProducto!!.text + ";"
+                                + txtPrecio!!.text + ";"
+                                + txtStock!!.text + ";")
+                        lstRespaldo.removeAt(i)
+                    }
+                }
+                lstRespaldo.add(reemplazo)
+                val bw1 = BufferedWriter(FileWriter("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt"))
+                for (valor in lstRespaldo)
+                {
+                    bw1.write(valor)
+                    bw1.write("\n")
+                }
+                bw1.close()
             }
-
-
         }
 
         if (accion == "borrar") {
-            txtNombreProducto!!.text = ""
-            txtPrecio!!.text = ""
-            txtMarca!!.text = ""
-            txtStock!!.text = ""
-            try {
-                val inputFile = File("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/productos.txt")
-                val tempFile = File("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/temporal.txt")
-                val reader = BufferedReader(FileReader(inputFile))
-                val writer = BufferedWriter(FileWriter(tempFile))
-
-                val lineToRemove =
-                    txtMarca!!.text + ";" + txtNombreProducto!!.text + ";" + txtPrecio!!.text + ";" + txtStock!!.text + ";"
-                var currentLine: String? = null;
-
-                while ({currentLine = reader.readLine();currentLine} != null) {
-                    // trim newline when comparing with lineToRemove
-                    val trimmedLine = currentLine;
-                    if (trimmedLine == lineToRemove) continue
-                    writer.write(currentLine + System.getProperty("line.separator"))
+                var archivo:File? = null
+                var fr:FileReader? = null
+                var br:BufferedReader? = null
+                val lstRespaldo = ArrayList<String>()
+                archivo = File("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt")
+                fr = FileReader(archivo!!)
+                br = BufferedReader(fr!!)
+                for(line in br.lines()){
+                    lstRespaldo.add(line)
                 }
-                writer.close()
-                reader.close()
-                println("Llegó hasta el final")
-            } catch (a: Exception) {
-                println("Error al eliminar el archivo")
-                println(a.toString())
-            }
-
-            txtNombreProducto!!.text = ""
-            txtPrecio!!.text = ""
-            txtMarca!!.text = ""
-            txtStock!!.text = ""
-
-            try {
-                val fr = FileReader("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/temporal.txt")
-                val br = BufferedReader(fr)
-                val fw = FileWriter("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/productos.txt")
-                var s: String? = null;
-
-                while ({s = br.readLine();s} != null) { // read a line
-                    fw.write(s + "\n") // write to output file
-                    fw.flush()
+                for(index in lstRespaldo){
+                    println(index)
                 }
-                br.close()
-                fw.close()
-                println("file copied")
-            } catch (d: IOException) {
-                println("Error al copiar el archivo")
-                d.printStackTrace()
-            }
+                br!!.close()
 
+                val bw = BufferedWriter(FileWriter("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt"))
+                bw.write("")
+                bw.close()
+
+                val productoBorrar:String = txtMarca!!.text
+                for (i in lstRespaldo.indices)
+                {
+                    val lstValues: List<String> = lstRespaldo[i].split(";").map { it.trim() }
+                    if (lstValues.get(0) == productoBorrar)
+                    {
+                        lstRespaldo.removeAt(i)
+                    }
+                }
+                val bw1 = BufferedWriter(FileWriter("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt"))
+                for (valor in lstRespaldo)
+                {
+                    bw1.write(valor)
+                    bw1.write("\n")
+                }
+                bw1.close()
+            }
             RemoverElementosJtable()
             llenarJTable()
-        }
     }
 
-    fun limpiaGUI() {
+    private fun limpiaGUI() {
         txtNombreProducto!!.text = ""
         txtPrecio!!.text = ""
         txtMarca!!.text = ""
@@ -380,7 +387,7 @@ class Producto : JFrame("MÓDULO PRODUCTOS"), ActionListener {
 
     fun llenarJTable() {
         try {
-            val file = File("D:/Universidad/Programas Java/PapeleriaKotlin/src/archivos/productos.txt")
+            val file = File("C:/Users/Edgar/Documents/IntelliJ/archivos/productos.txt")
             val br = BufferedReader(FileReader(file))
             // get lines from txt file
             val tableLines = br.lines().toArray()
