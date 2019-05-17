@@ -11,6 +11,11 @@ class Actividad_Dos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actividad__dos)
 
+        val nombre = intent.getStringExtra("nombre")
+        val edad = intent.getIntExtra("edad",0)
+        println(nombre)
+        println(edad)
+
         btn_actividad_uno.setOnClickListener {
             iraActividad_Uno()
         }
@@ -18,7 +23,7 @@ class Actividad_Dos : AppCompatActivity() {
 
     fun iraActividad_Uno(){
         val intent = Intent (
-            this,Actividad_Dos::class.java
+            this,MainActivity::class.java
         )
         startActivity(intent)
     }
