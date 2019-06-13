@@ -28,6 +28,19 @@ class AdaptadorPersona (private val listaPersonas: List<Persona>,
             val layout = view.findViewById(R.id.linear_layout) as LinearLayout
 
             layout.setOnClickListener { Log.i("recycler-view","Layout presionado") }
+
+            accionBoton.setOnClickListener {
+                nombreTextView.text = "Se cambió"
+                contexto.cambiarNombreTextView("WOW")
+
+                val nuevasPersonas = arrayListOf<Persona>()
+                nuevasPersonas.add(Persona("Felipe","1547896524"))
+                nuevasPersonas.add(Persona("Juan","1978543579"))
+                nuevasPersonas.add(Persona("Rafael","1548976528"))
+                nuevasPersonas.add(Persona("Tonato","1986745258"))
+
+                contexto.iniciarRecyclerView(nuevasPersonas,contexto,recyclerView)
+            }
         }
 
     }
