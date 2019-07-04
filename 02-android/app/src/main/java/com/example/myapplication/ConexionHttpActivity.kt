@@ -1,12 +1,14 @@
 package com.example.myapplication
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.beust.klaxon.Klaxon
 import java.lang.Exception
 import java.util.*
-import com.github.kittinunf.result.Result.*
+
+import com.github.kittinunf.result.Result.Failure
+import com.github.kittinunf.result.Result.Success
 import com.github.kittinunf.fuel.httpGet
 
 class ConexionHttpActivity : AppCompatActivity() {
@@ -16,28 +18,30 @@ class ConexionHttpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_conexion_http)
         val json = """
             [
-                {   
-                  "usuariosDeEmpresa":[
+                {
+                  "usuariosDeEmpresa": [
                       {
-                      "createdAt": 1561663617636,
-                      "updatedAt": 1561663617636,
-                      "id": 1,
-                      "nombre": "Edgar",
-                      "fkEmpresa":1
-                      
+                          "createdAt": 1561663617636,
+                          "updatedAt": 1561663617636,
+                          "id": 1,
+                          "nombre": "Adrian",
+                          "fkEmpresa": 1,
                       }
-                  ]
+                  ],
                   "createdAt": 1561663617636,
                   "updatedAt": 1561663617636,
                   "id": 1,
                   "nombre": "Manticore Labs"
-                 } 
+                }
             ]
         """.trimIndent()
+
         try {
             val empresaInstancia = Klaxon()
                 .parseArray<Empresa>(json)
+
             empresaInstancia?.forEach {
+
                 Log.i(
                     "http",
                     "Nombre ${it.nombre}"
@@ -52,7 +56,8 @@ class ConexionHttpActivity : AppCompatActivity() {
                     "http",
                     "Fecha ${it.fechaCreacion}"
                 )
-                it.UsuariosDeEmpresa.forEach {
+
+                it.usuariosDeEmpresa.forEach {
                     Log.i(
                         "http",
                         "Nombre ${it.nombre}"
@@ -72,7 +77,9 @@ class ConexionHttpActivity : AppCompatActivity() {
             )
         }
 
-        var url = "http://172.31.104.112/empresa/1"
+
+        val url = "http://172.31.104.99:1337/empresa/1"
+
 
         url
             .httpGet()
@@ -85,8 +92,18 @@ class ConexionHttpActivity : AppCompatActivity() {
                     is Success -> {
                         val data = result.get()
                         Log.i("http", "Data: ${data}")
+
+                        val empresaParseada = Klaxon()
+                            .parse<Empresa>(data)
+                        if (empresaParseada != null) {
+                            Log.i("http"," iiiiiiiiiiiiiiiiiiii ")
+                            Log.i("http","${empresaParseada.nombre} ")
+                            Log.i("http","${empresaParseada.id} ")
+                        }
                     }
                 }
             }
+
+
     }
 }

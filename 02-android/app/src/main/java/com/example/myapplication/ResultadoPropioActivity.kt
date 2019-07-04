@@ -1,8 +1,7 @@
 package com.example.myapplication
 
-import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_resultado_propio.*
 
@@ -17,17 +16,21 @@ class ResultadoPropioActivity : AppCompatActivity() {
         }
     }
 
-    fun devolverRespuesta(){
-        val nombre = "Edgar"
-        val edad = 24
+    fun devolverRespuesta() {
+        val nombre = "Adrian"
+        val edad = 30
 
         val intentRespuesta = Intent()
 
         intentRespuesta.putExtra("nombreUsuario", nombre)
         intentRespuesta.putExtra("edadUsuario", edad)
 
-        this.setResult(RESULT_OK, intentRespuesta)
+        this.setResult(
+            RESULT_OK, // Podemos enviar RESULT_OK o RESULT_CANCELED
+            intentRespuesta
+        )
 
+        this.finish()
 
     }
 }

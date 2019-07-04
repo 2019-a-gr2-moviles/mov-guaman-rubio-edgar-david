@@ -1,9 +1,8 @@
 package com.example.myapplication
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_parcelable.*
 import java.util.*
@@ -17,27 +16,45 @@ class MainActivity : AppCompatActivity() {
         btn_parcelable.setOnClickListener {
             irAParcelable()
         }
-
+        btn_toast.setOnClickListener {
+            irAToast()
+        }
         btn_adapter.setOnClickListener {
             irAListView()
         }
-
         btn_recycler_view.setOnClickListener {
             irArecyclerView()
         }
-
         btn_intent_respuesta.setOnClickListener {
-            irAIntentRespuesta() }
+            irAIntentRespuesta()
+        }
 
         btn_http.setOnClickListener {
             irAHttp()
         }
+
+        btn_maps.setOnClickListener {
+            iraMapa()
+        }
+
+    }
+
+    fun iraMapa(){
+        val intentExplicito = Intent(
+            this,
+            MapsActivity::class.java
+        )
+        startActivity(intentExplicito)
     }
 
     fun irAHttp(){
-        val intentExplicito = Intent(this, ConexionHttpActivity::class.java)
+        val intentExplicito = Intent(
+            this,
+            ConexionHttpActivity::class.java
+        )
         startActivity(intentExplicito)
     }
+
     fun irAIntentRespuesta(){
         val intentExplicito = Intent(
             this,
@@ -46,10 +63,27 @@ class MainActivity : AppCompatActivity() {
         startActivity(intentExplicito)
     }
 
+
     fun irArecyclerView(){
         val intentExplicito = Intent(
             this,
             ReciclerViewActivity::class.java
+        )
+        startActivity(intentExplicito)
+    }
+
+    fun irAToast(){
+        val intentExplicito = Intent(
+            this,
+            Main2Activity::class.java
+        )
+        startActivity(intentExplicito)
+    }
+
+    fun irAListView(){
+        val intentExplicito = Intent(
+            this,
+            ListViewActivity::class.java
         )
         startActivity(intentExplicito)
     }
@@ -60,22 +94,19 @@ class MainActivity : AppCompatActivity() {
             this,
             Parcelable::class.java
         )
-        val edgar = Usuario("Edgar",
-            23,
+        val adrian = Usuario("Adrian",
+            29,
             Date(),
-            11.142)
-        intentExplicito.putExtra("usuario",edgar)
+            12.12)
+        intentExplicito.putExtra("usuario",adrian)
 
-        val manchas = Mascota("Cachetes", edgar)
-        intentExplicito.putExtra("mascota", manchas)
+        val cachetes = Mascota("Cachetes", adrian)
+        intentExplicito.putExtra("mascota", cachetes)
 
 
         startActivity(intentExplicito)
-    }
 
-    fun irAListView(){
-        val intentExplicito = Intent(this, ListViewActivity::class.java)
-        startActivity(intentExplicito)
+
     }
 
 

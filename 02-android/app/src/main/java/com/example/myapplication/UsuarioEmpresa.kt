@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import java.util.*
 
-class UsuarioEmpresa(
+class UsuarioEmpresa (
     var id: Int,
     var nombre: String,
     var createdAt: Long,

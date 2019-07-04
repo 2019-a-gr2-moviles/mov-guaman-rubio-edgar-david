@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 
@@ -11,19 +11,19 @@ class Parcelable : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parcelable)
 
-        val edgar: Usuario? = this.intent
+        val adrian: Usuario? = this.intent
             .getParcelableExtra<Usuario>("usuario")
 
 
-        val manchas: Mascota? = this.intent
+        val cachetes: Mascota? = this.intent
             .getParcelableExtra<Mascota>("mascota")
-        Log.i("parcelable","Nombre ${edgar?.nombre}")
-        Log.i("parcelable","Nombre ${edgar?.edad}")
-        Log.i("parcelable","Nombre ${edgar?.fechaNacimiento.toString()}")
-        Log.i("parcelable","Nombre ${edgar?.sueldo}")
+        Log.i("parcelable","Nombre ${adrian?.nombre}")
+        Log.i("parcelable","Nombre ${adrian?.edad}")
+        Log.i("parcelable","Nombre ${adrian?.fechaNacimiento.toString()}")
+        Log.i("parcelable","Nombre ${adrian?.sueldo}")
 
-        Log.i("parcelable","Nombre ${manchas?.nombre}")
-        Log.i("parcelable","Nombre ${manchas?.duenio?.nombre}")
+        Log.i("parcelable","Nombre ${cachetes?.nombre}")
+        Log.i("parcelable","Nombre ${cachetes?.duenio?.nombre}")
 
     }
 
