@@ -9,7 +9,8 @@ module.exports = {
 
   attributes: {
     nombre:{
-      type:'string'
+      type:'string',
+      required: true
     },
     //Configuración del papá(Empresa-usuario)
     usuariosDeEmpresa:{     //Nombre del atributo de la relación
