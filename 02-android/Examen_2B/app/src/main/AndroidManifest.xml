@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.examen">
+          package="com.example.mjg70.examen">
 
     <application
             android:allowBackup="true"
@@ -9,19 +9,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity">
+        <activity android:name=".ActualizarMedicamentoActivity">
+        </activity>
+        <activity android:name=".ConsultarMedicamento">
         </activity>
         <activity android:name=".IngresarMedicamentoActivity">
         </activity>
-        <activity android:name=".IngresarActivity">
-        </activity>
-        <activity android:name=".ConsultarMedicamentoActivity">
-        </activity>
-        <activity android:name=".ConsultarActivity">
-        </activity>
-        <activity android:name=".ActualizarMedicamentoActivity">
-        </activity>
-        <activity android:name=".ActualizarActivity">
+        <activity android:name=".MenuActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -29,6 +23,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".IngresarActivity">
+        </activity>
+        <activity android:name=".ConsultarActivity">
+        </activity>
+        <activity android:name=".ActualizarActivity">
         </activity>
     </application>
 
