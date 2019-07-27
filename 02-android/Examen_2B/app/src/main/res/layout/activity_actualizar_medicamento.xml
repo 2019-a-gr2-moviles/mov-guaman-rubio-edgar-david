@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ActualizarJugadorActivity">
+        tools:context=".ActualizarMedicamentoActivity">
 
     <EditText
             android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
             android:id="@+id/txtGramosIngerir" android:layout_marginTop="36dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:hint="Actualizar gramos"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,8 @@
             android:ems="10"
             android:id="@+id/txtNombreMedicamento" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtGramosIngerir"
-            app:layout_constraintEnd_toEndOf="@+id/txtGramosIngerir" app:layout_constraintStart_toStartOf="@+id/txtGramosIngerir"/>
+            app:layout_constraintEnd_toEndOf="@+id/txtGramosIngerir"
+            app:layout_constraintStart_toStartOf="@+id/txtGramosIngerir" android:hint="Actualizar nombre"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,15 +32,18 @@
             android:ems="10"
             android:id="@+id/txtComposicion" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtNombreMedicamento"
-            app:layout_constraintEnd_toEndOf="@+id/txtNombreMedicamento" app:layout_constraintStart_toStartOf="@+id/txtNombreMedicamento"/>
+            app:layout_constraintEnd_toEndOf="@+id/txtNombreMedicamento"
+            app:layout_constraintStart_toStartOf="@+id/txtNombreMedicamento" android:hint="Actualizar composicion"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/txtUso"
-            app:layout_constraintEnd_toEndOf="@+id/txtComposicion" app:layout_constraintStart_toStartOf="@+id/txtComposicion"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtComposicion"/>
+            app:layout_constraintEnd_toEndOf="@+id/txtComposicion"
+            app:layout_constraintStart_toStartOf="@+id/txtComposicion"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtComposicion"
+            android:hint="Actualizar uso"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,28 +51,51 @@
             android:ems="10"
             android:id="@+id/txtFechaCaducidad"
             app:layout_constraintEnd_toEndOf="@+id/txtUso" app:layout_constraintStart_toStartOf="@+id/txtUso"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtUso"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtUso"
+            android:hint="Actualizar fecha"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/txtNumeroPastillas"
-            app:layout_constraintEnd_toEndOf="@+id/txtFechaCaducidad" app:layout_constraintStart_toStartOf="@+id/txtFechaCaducidad"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtFechaCaducidad"/>
+            app:layout_constraintEnd_toEndOf="@+id/txtFechaCaducidad"
+            app:layout_constraintStart_toStartOf="@+id/txtFechaCaducidad"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtFechaCaducidad"
+            android:hint="Actualizar numero pastilas"/>
     <Button
             android:text="ACTUALIZAR MEDICAMENTO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnActualizarJugador" app:layout_constraintStart_toStartOf="@+id/txtNumeroPastillas"
-            app:layout_constraintEnd_toEndOf="@+id/txtNumeroPastillas" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtNumeroPastillas" app:layout_constraintHorizontal_bias="0.504"/>
+            android:id="@+id/btnActualizarMedicamento"
+            app:layout_constraintEnd_toEndOf="@+id/txtLongitud"
+            app:layout_constraintStart_toStartOf="@+id/txtLongitud"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtLongitud"/>
     <Button
             android:text="ELIMINAR MEDICAMENTO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnEliminarJugador" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnActualizarJugador"
-            app:layout_constraintEnd_toEndOf="@+id/btnActualizarJugador"
-            app:layout_constraintStart_toStartOf="@+id/btnActualizarJugador"/>
+            android:id="@+id/btnEliminarMedicamento"
+            app:layout_constraintEnd_toEndOf="@+id/btnActualizarMedicamento"
+            app:layout_constraintStart_toStartOf="@+id/btnActualizarMedicamento"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/btnActualizarMedicamento"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned|numberDecimal"
+            android:ems="10"
+            android:id="@+id/txtLatitud"
+            app:layout_constraintEnd_toEndOf="@+id/txtNumeroPastillas"
+            app:layout_constraintStart_toStartOf="@+id/txtNumeroPastillas"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumeroPastillas" android:hint="Actualizar latitud"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned|numberDecimal"
+            android:ems="10"
+            android:id="@+id/txtLongitud"
+            app:layout_constraintEnd_toEndOf="@+id/txtLatitud"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtLatitud"
+            app:layout_constraintStart_toStartOf="@+id/txtLatitud" android:hint="Actualizar longitud"/>
 </android.support.constraint.ConstraintLayout>

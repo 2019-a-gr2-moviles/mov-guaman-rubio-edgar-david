@@ -12,54 +12,54 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtNombreMedicamento"
-            app:layout_constraintStart_toStartOf="@+id/txtGramosIngerir"
-            app:layout_constraintEnd_toEndOf="@+id/txtGramosIngerir"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtGramosIngerir"
+            android:id="@+id/txtAnombreMedicamento"
+            app:layout_constraintStart_toStartOf="@+id/txtAgramosIngerir"
+            app:layout_constraintEnd_toEndOf="@+id/txtAgramosIngerir"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtAgramosIngerir"
             android:hint="Nombre del medicamento"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtComposicion"
-            app:layout_constraintStart_toStartOf="@+id/txtNombreMedicamento" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtNombreMedicamento"
-            app:layout_constraintEnd_toEndOf="@+id/txtNombreMedicamento" android:hint="Composicion"/>
+            android:id="@+id/txtAcomposicion"
+            app:layout_constraintStart_toStartOf="@+id/txtAnombreMedicamento" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnombreMedicamento"
+            app:layout_constraintEnd_toEndOf="@+id/txtAnombreMedicamento" android:hint="Composicion"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtUso" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtComposicion"
-            app:layout_constraintStart_toStartOf="@+id/txtComposicion"
-            app:layout_constraintEnd_toEndOf="@+id/txtComposicion" android:hint="Uso"/>
+            android:id="@+id/txtAuso" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAcomposicion"
+            app:layout_constraintStart_toStartOf="@+id/txtAcomposicion"
+            app:layout_constraintEnd_toEndOf="@+id/txtAcomposicion" android:hint="Uso"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtFechaCaducidad"
-            app:layout_constraintStart_toStartOf="@+id/txtUso"
-            app:layout_constraintEnd_toEndOf="@+id/txtUso"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtUso"
+            android:id="@+id/txtAfechaCaducidad"
+            app:layout_constraintStart_toStartOf="@+id/txtAuso"
+            app:layout_constraintEnd_toEndOf="@+id/txtAuso"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtAuso"
             android:hint="Fecha de caducidad"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/txtNumeroPastillas" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtFechaCaducidad"
-            app:layout_constraintStart_toStartOf="@+id/txtFechaCaducidad"
-            app:layout_constraintEnd_toEndOf="@+id/txtFechaCaducidad" android:hint="Numero de pastillas"/>
+            android:id="@+id/txtAnumeroPastillas" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAfechaCaducidad"
+            app:layout_constraintStart_toStartOf="@+id/txtAfechaCaducidad"
+            app:layout_constraintEnd_toEndOf="@+id/txtAfechaCaducidad" android:hint="Numero de pastillas"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/txtGramosIngerir" android:layout_marginTop="80dp"
+            android:id="@+id/txtAgramosIngerir" android:layout_marginTop="52dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:hint="Gramos a ingerir"/>
@@ -68,25 +68,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnGuardar"
-            app:layout_constraintEnd_toEndOf="@+id/txtLongitud"
-            app:layout_constraintStart_toStartOf="@+id/txtLongitud" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtLongitud"/>
+            app:layout_constraintEnd_toEndOf="@+id/txtAlongitud"
+            app:layout_constraintStart_toStartOf="@+id/txtAlongitud" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAlongitud"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="numberSigned|numberDecimal"
             android:ems="10"
-            android:id="@+id/txtLatitud"
-            app:layout_constraintEnd_toEndOf="@+id/txtNumeroPastillas"
-            app:layout_constraintStart_toStartOf="@+id/txtNumeroPastillas" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtNumeroPastillas" android:hint="Latitud"/>
+            android:id="@+id/txtAlatitud"
+            app:layout_constraintEnd_toEndOf="@+id/txtAnumeroPastillas"
+            app:layout_constraintStart_toStartOf="@+id/txtAnumeroPastillas" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnumeroPastillas" android:hint="Latitud"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="numberSigned|numberDecimal"
             android:ems="10"
-            android:id="@+id/txtLongitud"
-            app:layout_constraintEnd_toEndOf="@+id/txtLatitud" app:layout_constraintStart_toStartOf="@+id/txtLatitud"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtLatitud"
+            android:id="@+id/txtAlongitud"
+            app:layout_constraintEnd_toEndOf="@+id/txtAlatitud" app:layout_constraintStart_toStartOf="@+id/txtAlatitud"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/txtAlatitud"
             android:hint="Longitud"/>
 </android.support.constraint.ConstraintLayout>

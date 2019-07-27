@@ -8,8 +8,8 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_ingresar_medicamento.*
 
 class IngresarMedicamentoActivity : AppCompatActivity() {
-    var usuario :String = "";
-    var id:String=""
+    var usuario: String = "";
+    var id: String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,14 +20,14 @@ class IngresarMedicamentoActivity : AppCompatActivity() {
     }
 
     fun guardarMedicamento(){
-        val gramosIngerir = txtGramosIngerir.text.toString().toInt()
-        val nombreMedicamento = txtNombreMedicamento.text.toString()
-        val composicion = txtComposicion.text.toString()
-        val uso = txtUso.text.toString()
-        val fechaCaducidad = txtFechaCaducidad.text.toString()
-        val numeroPastillas = txtNumeroPastillas.text.toString().toInt()
-        val latitud = txtLatitud.text.toString().toFloat()
-        val longitud = txtLongitud.text.toString().toFloat()
+        val gramosIngerir = txtAgramosIngerir.text.toString().toInt()
+        val nombreMedicamento = txtAnombreMedicamento.text.toString()
+        val composicion = txtAcomposicion.text.toString()
+        val uso = txtAuso.text.toString()
+        val fechaCaducidad = txtAfechaCaducidad.text.toString()
+        val numeroPastillas = txtAnumeroPastillas.text.toString().toInt()
+        val latitud = txtAlatitud.text.toString().toFloat()
+        val longitud = txtAlongitud.text.toString().toFloat()
         val pacienteId = id
 
         val referenceData = FirebaseDatabase.getInstance().getReference("medicamentos").child(pacienteId)
@@ -35,7 +35,7 @@ class IngresarMedicamentoActivity : AppCompatActivity() {
         if(medicamentoId!=null){
             val medicamentoNuevo = Medicamento(medicamentoId,gramosIngerir,nombreMedicamento,composicion,uso,fechaCaducidad,numeroPastillas,latitud,longitud)
             referenceData.child(medicamentoId).setValue(medicamentoNuevo).addOnCompleteListener {
-                Toast.makeText(this, "Medicamento ingresado por"+usuario,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Medicamento ingresado por "+usuario,Toast.LENGTH_SHORT).show()
             }
         }else{
             Toast.makeText(this, "id tiene valor nulo",Toast.LENGTH_SHORT).show()

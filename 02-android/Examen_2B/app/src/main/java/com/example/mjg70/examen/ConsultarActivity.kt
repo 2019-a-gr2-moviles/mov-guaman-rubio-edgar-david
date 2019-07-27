@@ -42,8 +42,6 @@ class ConsultarActivity : AppCompatActivity() {
                     intentPacienteSeleccionado.putExtra("usuario",usuario)
                     startActivity(intentPacienteSeleccionado)
                 }
-                    
-                    
                 }
             }
         });

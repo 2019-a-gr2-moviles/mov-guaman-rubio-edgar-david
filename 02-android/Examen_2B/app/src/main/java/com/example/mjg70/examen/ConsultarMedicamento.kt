@@ -4,10 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_consultar_medicamento.*
 
 class ConsultarMedicamento : AppCompatActivity() {
     var usuario :String = "";
@@ -29,7 +27,6 @@ class ConsultarMedicamento : AppCompatActivity() {
         ref.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
-
             override fun onDataChange(p0: DataSnapshot) {
                 if(p0.exists()){
                     for (medicine in p0.children){
