@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Examen</string>
+    <string name="app_name">Gestion Pacientes y Medicamentos</string>
+    <string name="title_activity_maps">Mapa de los hijos</string>
 </resources>
