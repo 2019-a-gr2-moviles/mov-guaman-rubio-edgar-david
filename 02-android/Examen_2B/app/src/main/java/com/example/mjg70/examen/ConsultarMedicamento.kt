@@ -1,37 +1,52 @@
 package com.example.mjg70.examen
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import kotlinx.android.synthetic.main.activity_consultar.*
-import kotlinx.android.synthetic.main.activity_consultar_jugador.*
+import android.widget.ListView
+import com.google.firebase.database.*
 
 class ConsultarMedicamento : AppCompatActivity() {
-    var padreId : Int = 0
     var usuario :String = "";
-    var pacienteRespaldo : Paciente? = null
+    var id:String=""
+    lateinit var ref: DatabaseReference
+    lateinit var medicamentoList: MutableList<Medicamento>
+    lateinit var listView: ListView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        usuario = intent.getStringExtra("usuario").toString()
-        pacienteRespaldo = intent.getParcelableExtra<Paciente>("PacienteRespaldo")
-        padreId = intent.getIntExtra("padreId", -1)
-        setContentView(R.layout.activity_consultar_jugador)
-        val adapter = ArrayAdapter<Medicamento>(
-            this,
-            android.R.layout.simple_list_item_1,
-            BDMedicamento.mostrarMedicamento(padreId)
-        )
-        lstJugador.adapter = adapter;
-        lstJugador.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+        setContentView(R.layout.activity_consultar_medicamento)
 
-            val jugadorSeleccionado = parent.getItemAtPosition(position) as Medicamento
-            val intentJugadorSeleccionado = Intent(this, ActualizarMedicamentoActivity::class.java)
-            intentJugadorSeleccionado.putExtra("usuario", usuario)
-            intentJugadorSeleccionado.putExtra("Medicamento", jugadorSeleccionado)
-            intentJugadorSeleccionado.putExtra("PacienteRespaldo", pacienteRespaldo)
-            startActivity(intentJugadorSeleccionado)
-        }
+        usuario = intent.getStringExtra("usuario").toString()
+        id = intent.getStringExtra("id").toString()
+
+        listView = findViewById(R.id.listMedicamento)
+        medicamentoList = mutableListOf()
+        ref = FirebaseDatabase.getInstance().getReference("medicamentos").child(id)
+        ref.addValueEventListener(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists()){
+                    for (medicine in p0.children){
+                        val medicina = medicine.getValue(Medicamento::class.java)
+                        medicamentoList.add(medicina!!)
+                    }
+
+                    val adapter = MedicamentoAdapter(applicationContext,R.layout.medicamentos,medicamentoList)
+                    listView.adapter = adapter
+                    listView.onItemClickListener = AdapterView.OnItemClickListener { parent, _ , position, _ ->
+                        val idMedicamentoSeleccionado = medicamentoList[position].idMedicamento
+                        val intentMedicamentoSeleccionado = Intent(this@ConsultarMedicamento,ActualizarMedicamentoActivity::class.java)
+                        intentMedicamentoSeleccionado.putExtra("idMedicamentoRecibido",idMedicamentoSeleccionado)
+                        intentMedicamentoSeleccionado.putExtra("usuario",usuario)
+                        intentMedicamentoSeleccionado.putExtra("id",id)
+
+                        startActivity(intentMedicamentoSeleccionado)
+                    }
+                }
+            }
+        })
     }
 }

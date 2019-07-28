@@ -1,7 +1,7 @@
 package com.example.mjg70.examen
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_menu.*
 
@@ -13,6 +13,7 @@ class MenuActivity : AppCompatActivity() {
         usuario = intent.getStringExtra("usuario").toString()
         btnEquipo.setOnClickListener {gestionarPaciente() }
         btnCrearEquipo.setOnClickListener{ crearPaciente()}
+        btn_Mapa.setOnClickListener{irAlMapa()}
     }
 
     fun gestionarPaciente(){
@@ -26,4 +27,11 @@ class MenuActivity : AppCompatActivity() {
         intentCrearEquipo.putExtra("usuario", usuario)
         startActivity(intentCrearEquipo)
     }
+
+    fun irAlMapa(){
+        val intentMapa = Intent(this, MapsActivity::class.java)
+        intentMapa.putExtra("usuario", usuario)
+        startActivity(intentMapa)
+    }
+
 }

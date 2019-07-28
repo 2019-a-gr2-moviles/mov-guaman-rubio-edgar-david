@@ -11,7 +11,7 @@ class BDPaciente{
         }
 
         fun agregarPaciente(paciente: Paciente):ArrayList<Paciente>{
-            paciente.id = serial
+            //paciente.id = serial
             serial++
             LST_PACIENTE.add(paciente)
             return LST_PACIENTE
@@ -22,7 +22,7 @@ class BDPaciente{
         }
 
         fun eliminarPaciente(id:Int){
-            this.LST_PACIENTE.removeAll{ it.id == id }
+            //this.LST_PACIENTE.removeAll{ it.id == id }
         }
 
         fun actualizarPaciente(paciente: Paciente){

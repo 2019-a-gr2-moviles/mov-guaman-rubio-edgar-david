@@ -1,16 +1,15 @@
 package com.example.mjg70.examen
 
-import android.os.Parcel
-import android.os.Parcelable
-
-
-class Paciente(var id:Int?,
-              var nombres:String,
-              var apellidos:String,
-              var fechaNacimiento:String,
-              var numeroHijos:Int,
-              var tieneSeguro:String) :Parcelable {
-
+class Paciente(val id:String,
+               val nombres:String,
+               val apellidos:String,
+               val fechaNacimiento:String,
+               val numeroHijos:Int,
+               val tieneSeguro:String)
+{
+    constructor() : this("","","","",0,"")
+}
+/*
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
@@ -48,5 +47,4 @@ class Paciente(var id:Int?,
         return "Nombres: ${nombres} Apellidos: ${apellidos} Fecha de nacimiento: ${fechaNacimiento} Numero de hijos:${numeroHijos} Tiene seguro:${tieneSeguro}"
     }
 
-
-}
+*/
